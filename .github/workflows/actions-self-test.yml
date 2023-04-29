@@ -4,35 +4,35 @@ on:
   push:
 
 env:
-  PRODUCT_VERSION: "1.8.6"
+  PRODUCT_VERSION: "1.5.3"
 
 jobs:
-  setup-packer:
-    name: Test `setup-packer`
+  setup-nomad:
+    name: Test `setup-nomad`
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup `packer` (using local GitHub Action)
+      - name: Setup `nomad` (using local GitHub Action)
         uses: "./"
         id: setup
         with:
           version: ${{ env.PRODUCT_VERSION }}
 
-      - name: Print `$PATH` for `packer`
-        run: which packer
+      - name: Print `$PATH` for `nomad`
+        run: which nomad
 
-      - name: Print `packer` version
-        run: packer version
+      - name: Print `nomad` version
+        run: nomad version
 
-      - name: Validate `packer` version is accurate
-        run: "packer version | grep --silent 'Packer v${{ env.PRODUCT_VERSION }}'"
+      - name: Validate `nomad` version is accurate
+        run: "nomad version | grep --silent 'Nomad v${{ env.PRODUCT_VERSION }}'"
 
-      - name: Run `packer fmt`
-        run: packer fmt -check "./test/hello-world.pkr.hcl"
+      - name: Run `nomad validate`
+        run: nomad validate "./test/hello-world.nomad"
 
-      - name: Setup `packer` with an invalid version (using local GitHub Action)
+      - name: Setup `nomad` with an invalid version (using local GitHub Action)
         uses: "./"
         id: invalid_version
         with:
@@ -43,9 +43,9 @@ jobs:
         if: steps.invalid_version.outcome == 'success'
         run: echo "Installing an invalid version expected to fail but did not" && exit 1
 
-      - name: Setup `packer` with `latest` version (using local GitHub Action)
+      - name: Setup `nomad` with `latest` version (using local GitHub Action)
         uses: "./"
         id: latest_version
 
-      - name: Print `packer` version
-        run: packer version
+      - name: Print `nomad` version
+        run: nomad version

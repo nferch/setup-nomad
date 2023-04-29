@@ -3,17 +3,17 @@
 
 ---
 
-name: "Setup HashiCorp Packer"
-author: "Kerim Satirli"
-description: "A GitHub Action to install a specific version of HashiCorp Packer and add it to PATH."
+name: "Setup HashiCorp Nomad"
+author: "Nathan Ferch"
+description: "A GitHub Action to install a specific version of HashiCorp Nomad and add it to PATH."
 inputs:
   version:
-    description: "The Packer version to install and add to PATH."
+    description: "The Nomad version to install and add to PATH."
     required: true
     default: "latest"
 outputs:
   version:
-    description: "The Packer version that was installed and added to PATH."
+    description: "The Nomad version that was installed and added to PATH."
 runs:
   using: "node16"
   main: "dist/index.js"

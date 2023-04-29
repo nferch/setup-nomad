@@ -49,7 +49,7 @@ function main() {
             return;
         }
         try {
-            yield hc.getHashicorpRelease("packer", version);
+            yield hc.getHashicorpRelease("nomad", version);
         }
         catch (error) {
             if (error instanceof Error) {

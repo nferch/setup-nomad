@@ -13,7 +13,7 @@ async function main() {
     return;
   }
   try {
-    await hc.getHashicorpRelease("packer", version);
+    await hc.getHashicorpRelease("nomad", version);
   } catch (error) {
     if (error instanceof Error) {
       core.setFailed(error.message);

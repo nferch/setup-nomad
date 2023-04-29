@@ -1,18 +1,18 @@
 {
-  "name": "setup-packer",
+  "name": "setup-nomad",
   "version": "2.1.0",
-  "description": "A GitHub Action to install a specific version of HashiCorp Packer and add it to PATH.",
+  "description": "A GitHub Action to install a specific version of HashiCorp Nomad and add it to PATH.",
   "keywords": [
     "github-actions",
     "hashicorp",
-    "packer"
+    "nomad"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:hashicorp/setup-packer.git"
+    "url": "git@github.com:nferch/setup-nomad.git"
   },
   "license": "Apache-2.0",
-  "author": "Kerim Satirli <kerim@hashicorp.com> & Jenna Goldstrich <jgoldstrich@hashicorp.com>",
+  "author": "Nathan Ferch <nf@marginal.net>",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc && ncc build --no-cache",
@@ -29,6 +29,6 @@
     "@types/node": "18.14.1",
     "@types/semver": "7.3.13",
     "prettier": "2.8.4",
-    "typescript": "4.9.5"
+    "typescript": "^4.9.5"
   }
 }
