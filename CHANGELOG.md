@@ -1,3 +1,6 @@
+# `4.0.0` (UNRELEASED, 2023-05)
+* Copy from https://github.com/hashicorp/setup-packer and modify for Nomad.
+
 # `0.3.0` (UNRELEASED, 2022-08)
 
 * Update Dockerfile to point to packer version `1.8.2`

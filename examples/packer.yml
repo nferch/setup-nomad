@@ -1,7 +1,7 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: Apache-2.0
 
-name: packer
+name: nomad
 
 on:
   - push
@@ -9,21 +9,17 @@ on:
 jobs:
   packer:
     runs-on: ubuntu-latest
-    name: Run Packer
+    name: Run Nomad
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup `packer`
-        uses: hashicorp/setup-packer@main
+      - name: Setup `nomad`
+        uses: nferch/setup-nomad@main
         id: setup
         with:
-          version: "1.8.6" # or latest
+          version: "1.5.3" # or latest
 
-      - name: Run `packer init`
-        id: init
-        run: "packer init ./image.pkr.hcl"
-
-      - name: Run `packer validate`
+      - name: Run `nomad validate`
         id: validate
-        run: "packer validate ./image.pkr.hcl"
+        run: "nomad validate ./job.nomad"
